@@ -1,0 +1,75 @@
+.body{
+    margin: 0px;
+    padding: 0px    ;
+}
+.main{
+    /* padding-left: 10%;
+    padding-right: 10%; */
+    margin: 0px;
+    padding-top: 5%;
+    background-color: #3b1844;
+}
+.button{
+    border-radius: 15px;
+    height: 35px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 0px;
+    font-size: 30px;
+}
+
+.head{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 12%;
+}
+
+.title{
+    font-weight: lighter;
+    font-size: 100px;
+}
+
+.intro{
+    font-size: 50px;
+}
+
+.service{
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: rgb(187,232,220);
+    padding-top: 5%;
+    padding-bottom: 10%;
+    text-align: center;
+    
+}
+.service h1{
+    font-size: 50px;
+}
+.serviceintro{
+    font-size: 40px;
+    
+}
+
+.servicecards{
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.need{
+    padding-bottom: 10%;
+    padding-top: 5%;
+    text-align: center;
+}
+.need h1{
+    font-size: 50px;
+}
+.need p{
+    font-size: 30px;
+}
+
+.needbody{
+    display: flex;
+    flex: row;
+}

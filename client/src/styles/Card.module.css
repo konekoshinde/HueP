@@ -1,0 +1,47 @@
+/* Card.module.css */
+.body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card {
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    height: 250px;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+  
+.content {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100%;
+}
+  
+.content h1 {
+margin: 0;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.link{
+text-decoration: none;
+color: black;
+font-size: 30px;
+}
+.card:hover{
+    width:270px;
+}
+.link:hover{
+    color: rgb(30, 183, 188);
+}
+.p{
+    font-size: 25px;
+}

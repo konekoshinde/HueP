@@ -1,5 +1,7 @@
 import * as icon from "../styles/Icons"
 
+import style from "../styles/Export.module.css"
+
 export default function Export(props) {
   const handleExport=async() =>{
     try {
@@ -28,7 +30,7 @@ export default function Export(props) {
 
   return (
     <div>
-      <button className="downloads" onClick={handleExport}>{icon.upload}export</button>
+      <button className={style.button}onClick={handleExport}>{icon.upload}Export</button>
     </div>
   )
 }

@@ -1,0 +1,46 @@
+.body{
+    margin: 0;
+    padding: 0;
+}
+
+.nav{
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #183f7f;
+}
+
+.main{
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight:bold;
+}
+
+.option{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    
+}
+.option li{
+    list-style: none;
+    font-size: 20px;
+}
+.link{
+    text-decoration: none;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: color 0.5s;
+}
+.link:hover{
+    text-decoration: none;
+    color: aqua;
+
+}
+.link:focus,
+.link:active{
+    transition: none;
+}

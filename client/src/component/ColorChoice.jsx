@@ -6,7 +6,7 @@ import Search from "./Search";
 import { Harmonies } from "../pages/SiteColor";
 import {Gradient} from "../pages/GradientPalette";
 import { Site } from "../pages/SiteColor";
-import "../styles/AllPalette.css"
+import styles from "../styles/ImgPalette.module.css"
 
 export const currentColor=createContext(null)
 
@@ -17,43 +17,43 @@ const ColorChoice=((props,ref)=> {
     
     
     return (
-        <div className="flex-normal">
+        <div className={styles.main}>
         
 
-        <div className="center">
+        <div className={styles.img}>
 
-            <div style={{backgroundColor:hsvaToHex(hsva)}}> .</div>
-            <EditableInput label="Hex" value={hsvaToHex(hsva)}
+            <EditableInput label="Editable Hex Value" value={hsvaToHex(hsva)} className={styles.input}
             onChange={(e)=>{let h=hexToHsva(e.target.value);setHsva(h); }}/>
+            <div style={{backgroundColor:hsvaToHex(hsva)}}></div>
             
 
             <Saturation hsva={hsva} onChange={(newColor) => {setHsva({ ...hsva, ...newColor, a: hsva.a });}}/>
             <br/>
             <ShadeSlider hsva={hsva} onChange={(newShade) => {setHsva({ ...hsva, ...newShade });;
-            }}/>
+            }} c/>
             <br/>
             <Hue hue={hsva.h} onChange={(newHue) => {setHsva({ ...hsva, ...newHue });}}
-            />
+            c/>
             <br/>
             <Alpha hsva={hsva} onChange={(newAlpha) => {setHsva({ ...hsva, ...newAlpha });
-            }}/> 
+            }} c/> 
         </div>
-        <div>
+        <div >
 
-        <currentColor.Provider value={{hsva}}>
-            {props.caller==="scheme" && <Harmony/>}
-            {props.caller==="gradient" && <Gradient/>}
-            {props.caller==="customPalette" && <>
-                <Palette ref={buttonRef1} /> 
-                <Search color={hsva} action ="find" destination="palette" buttonRef1={buttonRef1} /> 
-            </>
-            }
-            {props.caller==="Site" && <>
-                <Harmonies buttonRef1={buttonRef1}/>
-                <Search color={hsva} action ="find" destination="site" buttonRef1={buttonRef1} />
-                <Site ref={buttonRef1} />
-            </>}
-        </currentColor.Provider>
+            <currentColor.Provider value={{hsva}}>
+                {props.caller==="scheme" && <Harmony />}
+                {props.caller==="gradient" && <Gradient />}
+                {props.caller==="customPalette" && <>
+                    <Palette ref={buttonRef1} /> 
+                    <Search color={hsva} action ="find" destination="palette" buttonRef1={buttonRef1} /> 
+                </>
+                }
+                {props.caller==="Site" && <>
+                    <Harmonies buttonRef1={buttonRef1}/>
+                    <Site ref={buttonRef1} />
+                    <Search color={hsva} action ="find" destination="site" buttonRef1={buttonRef1} />
+                </>}
+            </currentColor.Provider>
         </div>
     </div>
     )

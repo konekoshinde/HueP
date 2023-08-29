@@ -1,23 +1,23 @@
 import StarIcon from '@mui/icons-material/Star';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import '../styles/Template.module.css'
-
-function Card(){
+import styles from '../styles/Template.module.css'
+import { hsvaToHslaString } from '@uiw/react-color';
+function Card(color){
     return(
-        <div className='flex-col1'>
-        <CheckCircleIcon/>
-        <h3 >heading</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit, magni.</p>
+        <div className={styles.flexCol1} style={{backgroundColor:"white"}}>
+        <CheckCircleIcon sx={{fontSize:"40px",color:color.color}}/>
+        <h3>heading</h3>
+        <p style={{color:color.color}}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit, magni.</p>
         </div>
     )
 }
-function CardCircle(){
-    return(<div className='flex-col1'>
+function CardCircle(color){
+    return(<div className={styles.flexCol1} style={{backgroundColor:"white"}}>
     <div>
-        <AccountCircleIcon/>
+        <AccountCircleIcon sx={{fontSize:"40px",color:color.color}}/>
         <h3 >title</h3>
-        <p>Lorem, ipsum.</p>
+        <p style={{color:color.color}}>Lorem, ipsum.</p>
     </div>
     <div>
         <StarIcon/>
@@ -28,67 +28,31 @@ function CardCircle(){
     <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, placeat obcaecati ut ex deleniti voluptates."</p>
     </div>)
 }
-function Heading(){
-    return (<div className='flex'>
-        <h3 >heading</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, libero.</p>
-    </div>)
-}
+
 export default function Template(props) {
     const colors=props.colors;
-
+    
   return (
-    <div className='padding' style={{backgroundColor:colors[4],color:colors[3]}}>
-    <div>
-      <h1 >Title</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, quas.</p>
-      <br/>
-      <br/>
-      <button className='button1' style={{backgroundColor:colors[2]}}>Button</button>
-      <button className='button1' style={{backgroundColor:colors[2]}}>Button</button>
-    </div>
-    <div className='flex'>
-        <h2 >subtitle</h2>
+    <div className={styles.padding} style={{backgroundColor:colors[3],border:"10px solid white"}}>
+    
+    <div className={styles.flex} > 
+        <h2 style={{color:colors[4],backgroundColor:"white"}}>subtitle</h2>
         <div>
-            <Card/>
-            <Card/>
-            <Card/>
+            <Card color={colors[2]}/>
+            <Card color={colors[2]}/>
+            <Card color={colors[2]}/>
         </div>
     </div>
-    <div className='reverse'>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <div>
-        <div className='reverse'>
-            <Heading/>
-            <Heading/>
-        </div>
-        <div className='reverse'>
-            <Heading/>
-            <Heading/>
-        </div>
-        </div>
-    </div>
-    <div className='flex'>
-        <h2 >testimonial</h2>
+    
+    <div className={styles.flex}>
+        <h2 style={{color:colors[4],backgroundColor:"white"}}>testimonial</h2>
         <div >
-        <CardCircle/>
-        <CardCircle/>
-        <CardCircle/>
+        <CardCircle color={colors[1]}/>
+        <CardCircle color={colors[1]}/>
+        <CardCircle color={colors[1]}/>
         </div>
     </div>
-    <div>
-            
-            <ul className='reverse'>
-                <li className='button'style={{backgroundColor:colors[2]}}>option1</li>
-                <br/>
-                <li className='button' style={{backgroundColor:colors[2]}}>option2</li>
-                <br/>
-                <li className='button' style={{backgroundColor:colors[2]}}>option3</li>
-                <br/>
-                <li className='button' style={{backgroundColor:colors[2]}}>option4</li>
-            </ul>
-        
-    </div>
+    
     </div>
   )
 }

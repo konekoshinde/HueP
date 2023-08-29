@@ -1,12 +1,12 @@
 import { forwardRef, useRef, useState,useEffect ,useImperativeHandle,useContext} from 'react'
 import { Harmonizer } from 'color-harmony';
 import ColorChoice from '../component/ColorChoice';
-import Template from '../component/Template';
 import { hsvaToHex } from '@uiw/react-color';
 import {currentColor} from "../component/ColorChoice";
 import Export from '../component/Export';
 import * as icon from "../styles/Icons"
-import "../styles/AllPalette.css"
+import styles from "../styles/ImgPalette.module.css"
+import Pictures from '../component/Pictures';
 
 
 export function Harmonies(props) {
@@ -20,9 +20,9 @@ export function Harmonies(props) {
     
     let display=['A','B','C','D','E','tint','shade','tone']
   return (
-    <div>
+    <div className={styles.li}>
        {display.map((i,index)=>
-            <li key={index}><button onClick={()=>props.buttonRef1.current.updateColor(arr[index])} >{i}</button></li>
+            <li className={styles.li} key={index}><button className={styles.buttonClick} onClick={()=>props.buttonRef1.current.updateColor(arr[index])} >{i}</button></li>
         )}
     </div>
   )
@@ -31,10 +31,19 @@ export function Harmonies(props) {
 
 export default function SiteColor() {
   return (
-    <div>
+    <>
+      <div className={styles.heading}>
+
+      <h1>Site ColorPalette</h1>
+      <h3>Create color palette for site</h3>
+      <div className={styles.separate}>
+
       <ColorChoice caller="Site"/>
-      
-    </div>
+        
+      </div>
+      </div>
+    </>
+    
   )
 }
 
@@ -61,23 +70,30 @@ const Site =forwardRef((props,ref)=>{
   },[hsva])
   const show =  colors.map((i,index)=>
     <>
-    <li className='button' key= {index} style={{backgroundColor:i}}> {i} 
-    {change===index && <button onClick={()=>setChange(-1)} className='opacity'>{icon.done}</button>}
-    {change!==index &&<button onClick={()=>setChange(index)} className='opacity'>{icon.edit}</button> }</li>
+    <li className={styles.button} key= {index} style={{backgroundColor:i}}> {i} 
+    {change===index && <button onClick={()=>setChange(-1)} className={styles.opacity}>{icon.done}</button>}
+    {change!==index &&<button onClick={()=>setChange(index)} className={styles.opacity}>{icon.edit}</button> }</li>
     
     <br/>
     </>
   )
 
   return (
-    <div>
-      <ul ref={download} className='flex-row'>{show}</ul>
-      <Export action="export" destination="palette" colors={colors}/>
-      <br/>
-      <button className='downloads' onClick={()=>exportComponentAsJPEG(download)}>{icon.download}download</button>
+    <>
+    
+    <div className={styles.list} style={{gap:"100px"}} >
+      <ul ref={download}>{show}</ul>
+      <div className={styles.download}>
 
-      <Template colors={colors}/>
+      <button className={styles.downloadbutton} onClick={()=>exportComponentAsJPEG(download)}>{icon.download}download</button>
+      <br/>
+      <Export action="export" destination="palette" colors={colors}/>
+      </div>
+      
     </div>
+
+    <Pictures colors={colors}/>
+    </>
   )
   
 })

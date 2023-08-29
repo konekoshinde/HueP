@@ -1,0 +1,32 @@
+.footer{
+    padding-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.about{
+    display: flex;
+    flex-direction: column;
+}
+
+.section h2{
+    font-size: 30px;
+    color: rgb(5, 203, 203);
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+
+}

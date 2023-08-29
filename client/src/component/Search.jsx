@@ -1,6 +1,8 @@
 import { hsvaToHex } from "@uiw/react-color";
 import { useState } from "react";
 import * as icon from "../styles/Icons"
+import styles from "../styles/ImgPalette.module.css"
+
 export default function Search(props) {
     const [afterFind,setAfterFind] = useState([]);
     const current=hsvaToHex(props.color);
@@ -47,13 +49,19 @@ export default function Search(props) {
     }
   return (
     <div>
-      <button className="downloads" onClick={()=>handleSearch()}> {icon.search}search</button>
+      <div style={{backgroundColor:current}}>.</div>
+      <button onClick={()=>handleSearch()}> {icon.search}search</button>
       {afterFind.map((i,ind)=>
-        <ul className='flex-row'>
-            <button onClick={()=>props.buttonRef1.current.updateColor(i)}>set as Palette</button>
-            <li key={ind}> {i.map((c,ind1) =><><li key={ind1} className="button" style={{backgroundColor:c}}><div >{c}</div></li><br/></>)} </li>
+      <>
+      <div > 
+
+        <ul style={{display:'flex',gap:"50px"}}>
+            <button onClick={()=>props.buttonRef1.current.updateColor(i)} className={styles.buttonClick}>set</button>
+            <li key={ind} style={{display:'flex'}}> {i.map((c,ind1) =><li key={ind1} className={styles.button} style={{backgroundColor:c}}><div >{c}</div></li>)} </li>
             <br/>
-        </ul>)}
+        </ul>
+        </div>
+        </>)}
     </div>
   )
 }

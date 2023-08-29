@@ -5,14 +5,15 @@ import {EyeDropper} from"react-eyedrop"
 import Export from "../component/Export";
 import * as icon from"../styles/Icons"
 import { exportComponentAsJPEG } from 'react-component-export-image';
-import { Height } from "@mui/icons-material";
-import style from "../styles/ImgPalette.module.css"
+import styles from "../styles/ImgPalette.module.css"
+
 
 export default function ImgPalette(props) {
   const [colors,setColors]=useState([]);
-  const[change,setChange]=useState(null);
+  const[change,setChange]=useState(-1);
   const download=useRef(null)
   const [imgupload,setImg]=useState(null);
+
   
 
 
@@ -41,7 +42,6 @@ export default function ImgPalette(props) {
         let temp=[];
         colorPalette.forEach(color => {
           const toRGBA={r:color[0],g:color[1],b:color[2],a:1}
-          
           temp.push(rgbaToHex(toRGBA));
         });
         
@@ -53,44 +53,52 @@ export default function ImgPalette(props) {
   }
   
   return (
-    <div className={style.main}>
-      <div>
+    <div className={styles.heading}>
 
-      <label htmlFor="file" className="downloads">{icon.photo}</label>
-      <input type="file" hidden id="file" onChange={handleChange}></input>
-      <div>
-        {imgupload?(<img src={imgupload} className={style.img}/>):(<h2>insert img</h2>)}
-      </div>
-      {change!==-1&& imgupload && <>
-            <EyeDropper onChange = {handlechange} cursorActive='crosshair'/></>}
-      </div>
-      <div className={style.list} >
+      <h1>Image Color Extractor</h1>
+      <h3>Extract beautiful palettes from your Photos</h3>
+      <div className={styles.main}>
+        <div>
 
-      <ul ref={download}  >
-            {
-                colors.map((i,ind)=>{
-                  return <>
-                    <li key={ind} style={{backgroundColor:i}} className={style.button}>{i}
-                    <button className={style.opacity} onClick={()=>setColors(colors.filter(c=>c!==i))}>{icon.del}</button>
-                    
-                    {change!==ind && <>
-                    <button  className={style.opacity} onClick={()=>setChange(ind)}>{icon.edit}</button>
-                    </> }
-                    </li>
-                    
-                    </>
-                })
-            }
-        </ul>
-        <div className={style.download}>
-          {colors.length && <Export action="export" destination="palette" colors={colors} />}
-          <br/>
-          {colors.length && <button  onClick={()=>exportComponentAsJPEG(download)}>{icon.download}download</button>}
+        <label htmlFor="file" className="downloads">{icon.photo}</label>
+        <input type="file" hidden id="file" onChange={handleChange}></input>
+        <div>
+          {imgupload?(<img src={imgupload} className={styles.img}/>):(<h2>Insert Image</h2>)}
         </div>
-       
+
+        {change!==-1&& imgupload && <>
+              <EyeDropper onChange = {handlechange} cursorActive='crosshair'/></>}
+        </div>
         
-        </div>
+        <div className={styles.list} >
+        <ul ref={download}>
+              {
+                  colors.map((i,ind)=>{
+                    return <>
+                      <li key={ind} style={{backgroundColor:i}} className={styles.button}>{i}
+                      <button className={styles.opacity} onClick={()=>setColors(colors.filter(c=>c!==i))}>{icon.del}</button>
+                      
+                      {change!==ind && <>
+                      <button className={styles.opacity} onClick={()=>setChange(ind)}>{icon.edit}</button>
+                      </> }
+                      </li>
+                      
+                      </>
+                  })
+              }
+          </ul>
 
+
+          <div className={styles.download}>
+            {colors.length && <button  onClick={()=>exportComponentAsJPEG(download)} className={styles.downloadbutton}>{icon.download}Download</button>}
+            <br/>
+            {colors.length && <Export action="export" destination="palette" colors={colors}/>}
+          </div>
+        
+          
+          </div>
+
+      </div>
     </div>
   )
 }
