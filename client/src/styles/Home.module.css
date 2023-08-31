@@ -7,7 +7,7 @@
     padding-right: 10%; */
     margin: 0px;
     padding-top: 5%;
-    background-color: #3b1844;
+    background-color: rgba(35, 87, 1, .3); 
 }
 .button{
     border-radius: 15px;
@@ -20,22 +20,28 @@
 .head{
     padding-left: 10%;
     padding-right: 10%;
+    
+    display: flex;
+    justify-content: space-between;
     padding-bottom: 12%;
 }
 
 .title{
     font-weight: lighter;
     font-size: 100px;
+    color:#570401;
+    letter-spacing: 100px;
 }
 
 .intro{
-    font-size: 50px;
+    font-size: 20px;
+    color:rgb(0, 73, 77);
 }
 
 .service{
     padding-left: 10%;
     padding-right: 10%;
-    background-color: rgb(187,232,220);
+    background-color: rgb(250, 237, 237);
     padding-top: 5%;
     padding-bottom: 10%;
     text-align: center;
@@ -43,6 +49,8 @@
 }
 .service h1{
     font-size: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:#570401;
 }
 .serviceintro{
     font-size: 40px;
@@ -52,7 +60,8 @@
 .servicecards{
     display: flex; 
     flex-direction: row;
-    align-items: center;
+    /* align-items: center; */
+    gap:20px;
     text-align: center;
     justify-content: center;
 }
@@ -64,12 +73,28 @@
 }
 .need h1{
     font-size: 50px;
+    color:#570401;
+
+}
+.need h2{
+    font-size: 35px;
+    color:#570401;
+    letter-spacing: 5px;
+    margin-right: 100px;
+    background-color:  rgb(250, 237, 237);
 }
 .need p{
-    font-size: 30px;
+    font-size: 20px;
+    color:rgb(0, 73, 77);
 }
 
 .needbody{
     display: flex;
+    justify-content: center;
     flex: row;
+}
+.part1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

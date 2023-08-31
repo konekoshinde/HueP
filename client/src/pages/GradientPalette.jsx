@@ -9,7 +9,7 @@ import { hsvaToHex } from '@uiw/react-color';
 import { exportComponentAsJPEG } from 'react-component-export-image';
 import {EyeDropper} from"react-eyedrop"
 import styles from "../styles/ImgPalette.module.css"
-import { IconButton } from '@mui/material';
+
 
 export function Gradient() {
     const [src,setSrc]=useState("");

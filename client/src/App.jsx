@@ -15,7 +15,7 @@ function App() {
     <>
     <BrowserRouter>
     <Nav/>
-
+    <br/>
     <Routes>
         <Route exact path="/" element={<Home />}></Route>
         <Route exact path="/customPalette" element={<CustomPalette/>}></Route>
@@ -24,6 +24,7 @@ function App() {
         <Route exact path="/Site" element={<SiteColor />}></Route>
         <Route exact path="/Scheme" element={<Scheme/>}></Route>
       </Routes>
+      <br/>
       <Footer/>
     </BrowserRouter>
     </>

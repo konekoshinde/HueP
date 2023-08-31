@@ -2,7 +2,7 @@ import React from 'react'
 import styles from "../styles/Card.module.css"
 import { Link } from 'react-router-dom'
 function Card(props) {
-  console.log(props.link);
+
   return (
     <div>
         <div className={styles.card}>

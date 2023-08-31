@@ -2,10 +2,13 @@ import React from 'react'
 import styles from "../styles/Nav.module.css";
 import {Link} from "react-router-dom";
 
+import photo from "../images/logo.png";
+
+
 function Nav() {
   return (
     <nav className={styles.nav}>
-        <h1 className = {styles.main}>HUEP</h1>
+        <img src={photo} style={{width:"150px"}}/>
         <ul  className={styles.option}>
             <li>
                 <Link to="/" className={styles.link}>Home</Link>

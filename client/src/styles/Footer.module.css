@@ -1,11 +1,12 @@
 .footer{
     padding-top: 5%;
-    margin-left: 10%;
-    margin-right: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
     padding-bottom: 5%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background-color:  rgba(250, 237, 237,.5);
 }
 
 .about{
@@ -13,8 +14,13 @@
     flex-direction: column;
 }
 
+.about >h1{
+    color:#570401;
+    letter-spacing: 100px;
+}
 .section h2{
     font-size: 30px;
+    
     color: rgb(5, 203, 203);
 }
 
@@ -22,11 +28,19 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    
+
 }
 
 .link {
     text-decoration: none;
     color: black;
+    font-size: 20px;
+
+}
+.link:hover {
+    color: aqua;
+    background-color: #570401;
     font-size: 20px;
 
 }

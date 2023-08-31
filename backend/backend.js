@@ -50,7 +50,7 @@ app.post("/palette", async (req, res) => {
     
   }
   else{
-
+    console.log(req.body.colors);
     const find= await Palette.findOne({colors:req.body.colors}).exec();
     if(find){
       res.status(201).json("ok");
@@ -82,7 +82,7 @@ app.post("/site", async (req, res) => {
       const find= await Site.findOne({colors:req.body.colors}).exec();
       if(find){
         res.status(201).json("OK");
-    }
+      }
     else{
       const newPalette = new Site({ colors: req.body.colors });
         let result = await newPalette.save();

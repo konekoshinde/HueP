@@ -10,7 +10,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: #183f7f;
+    background-color: #17533d;
 }
 
 .main{
@@ -38,6 +38,7 @@
 .link:hover{
     text-decoration: none;
     color: aqua;
+    background-color:#570401;
 
 }
 .link:focus,

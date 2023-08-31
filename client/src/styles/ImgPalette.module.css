@@ -98,18 +98,23 @@
 .heading{
     text-align: center;
     padding-top: 5%;
+    
 }
 
 .heading > h3{
-
-    font-size: 30px;
+    font-size: 20px;
     padding:0;
+    font-weight: 400;
     color:rgba(7, 28, 29,.5);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .heading > h1{
     font-weight: bolder;
-    font-size: 100px;
-    color:rgba(7, 28, 29)
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 80px;
+    
+    color:#570401;
+    letter-spacing: 20px;
 }
 
 .li{

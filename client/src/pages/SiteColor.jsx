@@ -4,6 +4,7 @@ import ColorChoice from '../component/ColorChoice';
 import { hsvaToHex } from '@uiw/react-color';
 import {currentColor} from "../component/ColorChoice";
 import Export from '../component/Export';
+import { exportComponentAsJPEG } from 'react-component-export-image';
 import * as icon from "../styles/Icons"
 import styles from "../styles/ImgPalette.module.css"
 import Pictures from '../component/Pictures';
@@ -87,7 +88,7 @@ const Site =forwardRef((props,ref)=>{
 
       <button className={styles.downloadbutton} onClick={()=>exportComponentAsJPEG(download)}>{icon.download}download</button>
       <br/>
-      <Export action="export" destination="palette" colors={colors}/>
+      <Export action="export" destination="site" colors={colors}/>
       </div>
       
     </div>

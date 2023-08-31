@@ -15,7 +15,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(white, #005717 50%, #570401 50%, #570401);
+    background-size: 100% 200%;
+    transition: background 0.3s;
     text-align: center;
+    /* text-transform: uppercase; */
 }
   
 .content {
@@ -33,15 +37,19 @@ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 .link{
 text-decoration: none;
-color: black;
+color:#570401;
 font-size: 30px;
+letter-spacing: 10px;
 }
 .card:hover{
     width:270px;
+    background-position: 100% 100%;
+    .link{
+        color:white;
+    }
+    /* background-color: brown; */
 }
-.link:hover{
-    color: rgb(30, 183, 188);
-}
+
 .p{
     font-size: 25px;
 }
